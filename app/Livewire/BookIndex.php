@@ -5,12 +5,16 @@ namespace App\Livewire;
 use App\Livewire\Forms\BookForm;
 use App\Models\Book;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class BookIndex extends Component
 {
     use WithPagination;
+
+    #[Url(as: 'q')]
+    public string $query = '';
 
     protected $listeners = [
         'book.created' => '$refresh'
@@ -34,7 +38,14 @@ class BookIndex extends Component
     public function render()
     {
         return view('livewire.book-index', [
-            'books' => auth()->user()->books()->latest()->paginate(3),
+            'books' => auth()->user()
+                ->books()
+                ->when(filled($this->query), function ($query) {
+                    $query->where('title', 'LIKE', '%' . $this->query . '%')
+                        ->orWhere('author', 'LIKE', '%' . $this->query . '%');
+                })
+                ->latest()
+                ->paginate(2),
         ]);
     }
 }
