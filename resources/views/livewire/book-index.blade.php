@@ -18,8 +18,22 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg font-medium">Submit</button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg font-medium disabled:opacity-50">
+                    <span wire:loading.delay.long>
+                        Loading
+                    </span>
+
+                    <span wire:loading.remove.delay.long>
+                        Submit
+                    </span>
+                </button>
             </form>
+
+            {{-- <button wire:click="example" class="disabled:opacity-50" wire:loading.attr="disabled">Click me</button> --}}
+
+            {{-- <div wire:loading.delay.long>
+                Loading
+            </div> --}}
         </div>
     </div>
     <div class="space-y-2">
