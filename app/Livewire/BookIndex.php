@@ -2,15 +2,16 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\BookForm;
 use Livewire\Component;
 
 class BookIndex extends Component
 {
-    public string $title = '';
+    public BookForm $form;
 
-    public function createBook()
+    public function submit()
     {
-        dd($this->title);
+        $this->form->create();
     }
 
     public function render()
