@@ -18,6 +18,10 @@ class CreateBook extends Component
         $book = $this->form->create();
 
         $this->dispatch('book.created');
+
+        $this->dispatch('alert', [
+            'body' => 'Book "' . $book->title . '" was created'
+        ]);
     }
 
     public function render()
