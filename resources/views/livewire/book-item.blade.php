@@ -13,6 +13,9 @@
             <li>
                 <button wire:click="$toggle('editing')" class="text-blue-500">Edit</button>
             </li>
+            <li>
+                <button wire:click="$parent.deleteBook({{ $book->id }})" class="text-blue-500">Delete</button>
+            </li>
         </ul>
     </div>
 </div>
