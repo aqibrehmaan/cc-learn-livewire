@@ -1,7 +1,7 @@
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900 space-y-4">
         @if ($editing)
-            Show edit form
+            <livewire:update-book :book="$book" />
         @endif
 
         <div>
