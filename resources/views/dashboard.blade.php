@@ -8,6 +8,7 @@
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="space-y-2">
+                {{-- <livewire:toggle-example /> --}}
                 <livewire:create-book />
                 <livewire:book-index />
             </div>
