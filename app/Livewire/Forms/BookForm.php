@@ -7,8 +7,11 @@ use Livewire\Form;
 
 class BookForm extends Form
 {
+    #[Rule('required', message: ':attribute is required', as: 'Title of the book')]
+    // #[Rule('min:20')]
     public string $title = '';
 
+    #[Rule('required', message: ':attribute is required', as: 'Author of the book')]
     public string $author = '';
 
     public function create()

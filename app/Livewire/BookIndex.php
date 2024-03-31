@@ -11,6 +11,8 @@ class BookIndex extends Component
 
     public function submit()
     {
+        $this->form->validate();
+
         $this->form->create();
     }
 
