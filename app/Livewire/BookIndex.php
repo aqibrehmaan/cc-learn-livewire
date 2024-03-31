@@ -16,6 +16,9 @@ class BookIndex extends Component
     public function deleteBook(int $bookId)
     {
         $book = Book::find($bookId);
+
+        $this->authorize('delete', $book);
+
         $book->delete();
     }
 
