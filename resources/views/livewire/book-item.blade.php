@@ -11,7 +11,7 @@
 
         <div>
             <label for="notes" class="sr-only">Notes</label>
-            <textarea wire:model.live="form.notes" id="notes" rows="4" class="w-full border border-slate-300 rounded-lg" placeholder="Your notes for this book"></textarea>
+            <textarea wire:model.live.debounce.500ms="form.notes" id="notes" rows="4" class="w-full border border-slate-300 rounded-lg" placeholder="Your notes for this book"></textarea>
         </div>
 
         <ul class="flex items-center space-x-2">
