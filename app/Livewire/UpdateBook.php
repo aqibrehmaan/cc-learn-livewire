@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\BookForm;
 use App\Models\Book;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -10,26 +11,18 @@ class UpdateBook extends Component
 {
     public Book $book;
 
-    #[Rule('required')]
-    public string $title = '';
-
-    #[Rule('required')]
-    public string $author = '';
+    public BookForm $form;
 
     public function mount()
     {
-        $this->title = $this->book->title;
-        $this->author = $this->book->author;
+        $this->form->setBook($this->book);
     }
 
     public function submit()
     {
-        $this->validate();
+        $this->form->validate();
 
-        $this->book->update([
-            'title' => $this->title,
-            'author' => $this->author,
-        ]);
+        $this->form->update();
 
         $this->dispatch('book.' . $this->book->id . '.updated');
     }

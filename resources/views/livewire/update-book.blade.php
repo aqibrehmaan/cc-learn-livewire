@@ -1,16 +1,16 @@
 <form wire:submit.prevent="submit" class="flex items-start space-x-3">
     <div class="grow">
         <label for="title" class="sr-only">Book title</label>
-        <input type="text" id="title" wire:model.blur="title" placeholder="Book title" class="w-full border border-slate-300 rounded-lg">
-        @error('title')
+        <input type="text" id="title" wire:model.blur="form.title" placeholder="Book title" class="w-full border border-slate-300 rounded-lg">
+        @error('form.title')
             <div class="mt-1 text-red-500">{{ $message }}</div>
         @enderror
     </div>
 
     <div class="grow">
         <label for="title" class="sr-only">Book author</label>
-        <input type="text" id="author" wire:model.blur="author" placeholder="Book author" class="w-full border border-slate-300 rounded-lg">
-        @error('author')
+        <input type="text" id="author" wire:model.blur="form.author" placeholder="Book author" class="w-full border border-slate-300 rounded-lg">
+        @error('form.author')
             <div class="mt-1 text-red-500">{{ $message }}</div>
         @enderror
     </div>
