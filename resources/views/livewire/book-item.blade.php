@@ -14,7 +14,17 @@
                 <button wire:click="$toggle('editing')" class="text-blue-500">Edit</button>
             </li>
             <li>
-                <button wire:click="$parent.deleteBook({{ $book->id }})" class="text-blue-500">Delete</button>
+                <button
+                    x-data
+                    x-on:click="
+                        if (window.confirm('Are you sure?')) {
+                            $wire.$parent.deleteBook({{ $book->id }})
+                        }
+                    "
+                    class="text-blue-500"
+                >Delete</button>
+
+                {{-- <button wire:click="$parent.deleteBook({{ $book->id }})" class="text-blue-500">Delete</button> --}}
             </li>
         </ul>
     </div>
