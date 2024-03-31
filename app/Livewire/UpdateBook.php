@@ -31,7 +31,7 @@ class UpdateBook extends Component
             'author' => $this->author,
         ]);
 
-        $this->dispatch('book.editing', false);
+        $this->dispatch('book.' . $this->book->id . '.updated');
     }
 
     public function render()

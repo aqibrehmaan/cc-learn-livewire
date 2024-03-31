@@ -12,10 +12,10 @@ class BookItem extends Component
 
     public bool $editing = false;
 
-    #[On('book.editing')]
-    public function bookEditing(bool $editing)
+    #[On('book.{book.id}.updated')]
+    public function bookHasBeenUpdated()
     {
-        $this->editing = $editing;
+        $this->editing = false;
     }
 
     public function render()
