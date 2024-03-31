@@ -9,6 +9,8 @@ class BookItem extends Component
 {
     public Book $book;
 
+    public bool $editing = false;
+
     public function render()
     {
         return view('livewire.book-item');
